@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1106380d95cadfccabc8f46a89ebb9e8",
+    "hash": "638e5464d0029a2e29479f4887831dbf",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -365,6 +365,61 @@
             "time": "2016-01-03 15:42:47"
         },
         {
+            "name": "telegram-bot/api",
+            "version": "v1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TelegramBot/Api.git",
+                "reference": "a0bd3bea39a6f01a0e8a79d054d596b6ededbc3a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TelegramBot/Api/zipball/a0bd3bea39a6f01a0e8a79d054d596b6ededbc3a",
+                "reference": "a0bd3bea39a6f01a0e8a79d054d596b6ededbc3a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "*",
+                "phpunit/phpunit": "4.*",
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TelegramBot\\Api\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ilya Gusev",
+                    "email": "mail@igusev.ru",
+                    "homepage": "https://php-cat.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Wrapper for Telegram Bot API",
+            "homepage": "https://github.com/TelegramBot/Api",
+            "keywords": [
+                "bot",
+                "bot api",
+                "php",
+                "telegram"
+            ],
+            "time": "2015-08-17 11:55:00"
+        },
+        {
             "name": "yiisoft/yii2",
             "version": "dev-master",
             "source": {
@@ -374,7 +429,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/50ee7b5fb4384a949a9a86b6b2d851dd0f20b167",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/39e484ab49fdbf487d76e1ff44a34e5b76506f20",
                 "reference": "50ee7b5fb4384a949a9a86b6b2d851dd0f20b167",
                 "shasum": ""
             },
@@ -913,7 +968,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "telegram-bot/api": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
