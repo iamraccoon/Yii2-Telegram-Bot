@@ -10,7 +10,7 @@ $config = [
         'bot' => [
             'class' => 'app\components\telegram\Bot',
             'botToken' => '186801726:AAEY4abZlY14wsToP9LD0oe8q-6_Z5Nfsow',
-            'controllerName' => 'site',
+            'controllerName' => 'main',
             'methodDefault' => 'chat',
         ],
         'request' => [
@@ -48,7 +48,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '' => 'site/index',
+                '' => 'main/index',
             ],
         ],
     ],

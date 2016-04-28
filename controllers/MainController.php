@@ -8,7 +8,7 @@ use app\actions\StartAction;
 use app\actions\HelpAction;
 use app\actions\ChatAction;
 
-class SiteController extends Controller
+class MainController extends Controller
 {
     public function actions()
     {
