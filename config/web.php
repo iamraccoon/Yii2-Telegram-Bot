@@ -7,6 +7,10 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
+        'bot' => [
+            'class' => 'components\telegram\Bot',
+            'botToken' => '186801726:AAEY4abZlY14wsToP9LD0oe8q-6_Z5Nfsow'
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'djC0AELpyOxCSV7Jkzye9uDplcS-gKTV',
