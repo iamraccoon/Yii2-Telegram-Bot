@@ -121,6 +121,9 @@ class Bot extends BotApi implements Configurable
      */
     public function makeAnswer()
     {
-        return BotAction::makeAnswer($this->controllerName, $this->getMethodName());
+        $botAction = new BotAction();
+        $answer = $botAction->makeAnswer($this->controllerName, $this->getMethodName());
+
+        return $answer;
     }
 }
