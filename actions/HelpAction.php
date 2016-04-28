@@ -16,6 +16,6 @@ class HelpAction extends Action
      */
     public function run()
     {
-        DefaultMessage::Help();
+        return DefaultMessage::Help();
     }
 }

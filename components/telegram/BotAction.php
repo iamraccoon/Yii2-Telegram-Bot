@@ -27,7 +27,7 @@ class BotAction
      */
     public function makeAnswer($controller, $action)
     {
-        $this->action = $this->getAction($action);
+        $this->action = $this->getActionName($action);
 
         return Yii::$app->runAction($controller . '/' . $this->action);
     }
@@ -36,7 +36,7 @@ class BotAction
      * @param $action
      * @return mixed
      */
-    private function getAction($action)
+    private function getActionName($action)
     {
         if (in_array($action, $this->actionsList)) {
             return $action;

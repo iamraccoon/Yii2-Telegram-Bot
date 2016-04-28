@@ -15,7 +15,7 @@ class MainController extends Controller
         return [
             'start' => ['class' => StartAction::className()],
             'help' => ['class' => HelpAction::className()],
-            'chat' => ['class' => ChatAction::className()],
+            'chat' => ['class' => ChatAction::className()]
         ];
     }
 

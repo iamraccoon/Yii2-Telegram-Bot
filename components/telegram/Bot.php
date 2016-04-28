@@ -45,12 +45,18 @@ class Bot extends BotApi implements Configurable
     private $chatId;
 
     /**
+     * @var string
+     */
+    private $message;
+
+    /**
      * @throws Exception
      */
     public function init()
     {
         $this->getRequest();
         $this->getMethodName();
+        $this->getMessage();
     }
 
     /**
@@ -98,6 +104,18 @@ class Bot extends BotApi implements Configurable
         }
 
         return $this->method;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMessage()
+    {
+        if (isset($this->request['message']['text'])) {
+            $this->message = $this->request['message']['text'];
+        }
+
+        return $this->message;
     }
 
     /**

@@ -28,14 +28,6 @@ class DefaultMessage
     /**
      * @return string
      */
-    public static function IamSick()
-    {
-        return 'Я болеть ((';
-    }
-
-    /**
-     * @return string
-     */
     public static function Help()
     {
         return 'Основная цель словесной «игры» — каждый раз, используя ответ собеседника, вновь предлагать ему купить слона';
