@@ -24,7 +24,7 @@ class MainController extends Controller
         $bot = Yii::$app->bot;
         $bot->init();
 
-        $message = $bot->getMessage();
+        $message = $bot->makeAnswer();
         $bot->sendMessage($bot->getChatId(), $message);
     }
 }

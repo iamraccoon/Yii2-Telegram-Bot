@@ -119,8 +119,8 @@ class Bot extends BotApi implements Configurable
     /**
      * @return int|mixed
      */
-    public function getMessage()
+    public function makeAnswer()
     {
-        return Yii::$app->runAction($this->controllerName . '/' . $this->getMethodName());
+        return BotAction::makeAnswer($this->controllerName, $this->getMethodName());
     }
 }
