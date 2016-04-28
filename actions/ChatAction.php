@@ -8,6 +8,6 @@ class ChatAction extends Action
 {
     public function run()
     {
-
+        
     }
 }
