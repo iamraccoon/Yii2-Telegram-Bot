@@ -8,8 +8,10 @@ $config = [
     'bootstrap' => ['log'],
     'components' => [
         'bot' => [
-            'class' => 'components\telegram\Bot',
-            'botToken' => '186801726:AAEY4abZlY14wsToP9LD0oe8q-6_Z5Nfsow'
+            'class' => 'app\components\telegram\Bot',
+            'botToken' => '186801726:AAEY4abZlY14wsToP9LD0oe8q-6_Z5Nfsow',
+            'controllerName' => 'site',
+            'methodDefault' => 'chat',
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -42,14 +44,13 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '' => 'site/index',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
