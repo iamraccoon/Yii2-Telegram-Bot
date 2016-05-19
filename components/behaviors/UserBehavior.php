@@ -2,6 +2,7 @@
 
 namespace app\components\behaviors;
 
+use app\components\phrase\GeneratePhrases;
 use app\models\User;
 use TelegramBot\Api\Exception;
 use yii;
@@ -40,7 +41,7 @@ class UserBehavior extends Behavior
     public function events()
     {
         return [
-            Controller::EVENT_BEFORE_ACTION=> 'beforeAction',
+            Controller::EVENT_BEFORE_ACTION => 'beforeAction',
         ];
     }
 
@@ -50,14 +51,18 @@ class UserBehavior extends Behavior
      */
     public function beforeAction()
     {
-        if (in_array($this->currentAction, $this->actions)) {
+        if ($this->validate()) {
             if (!($user = User::find()->select('id')->where('id=:id', [':id' => $this->userId])->one())) {
+
                 $user = new User();
                 $user->id = $this->userId;
                 $user->firstName = $this->firstName;
                 if (!$user->validate() or !$user->save(false)) {
                     throw new Exception('User creation error');
                 }
+
+                $phrase = new GeneratePhrases();
+                $phrase->generate($this->userId);
             } else {
                 if (!$user->update()) {
                     throw new Exception('User update error');
@@ -75,5 +80,17 @@ class UserBehavior extends Behavior
     {
         $this->userId = Yii::$app->bot->getChatId();
         $this->firstName = Yii::$app->bot->getFirstName();
+    }
+
+    /**
+     * @return bool
+     */
+    private function validate()
+    {
+        if (in_array($this->currentAction, $this->actions)) {
+            return true;
+        }
+
+        return false;
     }
 }
