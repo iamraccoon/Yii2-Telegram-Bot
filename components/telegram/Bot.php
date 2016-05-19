@@ -135,6 +135,18 @@ class Bot extends BotApi implements Configurable
     }
 
     /**
+     * @return string
+     */
+    public function getFirstName()
+    {
+        if (isset($this->request['message']['from']['first_name'])) {
+            return $this->request['message']['from']['first_name'];
+        }
+
+        return '';
+    }
+
+    /**
      * @return int|mixed
      */
     public function makeAnswer()

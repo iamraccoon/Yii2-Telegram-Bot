@@ -3,12 +3,14 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "User".
  *
  * @property integer $id
- * @property string $chatId
+ * @property string $firstName
  * @property string $createAt
  *
  * @property DialogPriority[] $dialogPriorities
@@ -16,6 +18,18 @@ use Yii;
  */
 class User extends \yii\db\ActiveRecord
 {
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'createAt',
+                'updatedAtAttribute' => 'updateAt',
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
+
     /**
      * @inheritdoc
      */
@@ -30,9 +44,8 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['chatId'], 'required'],
             [['createAt'], 'safe'],
-            [['chatId'], 'string', 'max' => 300],
+            [['firstName'], 'string', 'max' => 300]
         ];
     }
 
@@ -43,7 +56,7 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'chatId' => 'Chat ID',
+            'firstName' => 'First Name',
             'createAt' => 'Create At',
         ];
     }

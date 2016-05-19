@@ -2,12 +2,18 @@
 
 namespace app\actions;
 
+use app\models\User;
+use TelegramBot\Api\Exception;
 use yii;
 use yii\base\Action;
 
 class ChatAction extends Action
 {
     private $message;
+
+    private $userId;
+
+    private $firstName;
 
     public function run()
     {
@@ -19,6 +25,8 @@ class ChatAction extends Action
     public function init()
     {
         $this->message = Yii::$app->bot->getMessage();
+        $this->userId = Yii::$app->bot->getChatId();
+        $this->firstName = Yii::$app->bot->getFirstName();
     }
 
     private function getMessage()

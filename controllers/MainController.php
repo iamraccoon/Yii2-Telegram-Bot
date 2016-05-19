@@ -10,6 +10,20 @@ use app\actions\ChatAction;
 
 class MainController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'user' => [
+                'class' => 'app\components\behaviors\UserBehavior',
+                'actions' => array_keys($this->actions()),
+                'currentAction' => Yii::$app->controller->action->id
+            ],
+//            'log' => [
+//                'class' => 'app\components\behaviors\LogBehavior'
+//            ]
+        ];
+    }
+
     public function actions()
     {
         return [
@@ -23,7 +37,6 @@ class MainController extends Controller
     {
         $bot = Yii::$app->bot;
         $bot->init();
-
         $message = $bot->makeAnswer();
         $bot->sendMessage($bot->getChatId(), $message);
     }
