@@ -10,6 +10,19 @@ use app\components\phrase\Greeting;
  */
 class Message
 {
+    /**
+     * @param $query
+     * @return string
+     */
+    public static function chat($query)
+    {
+        return 'Все говорят «' . $query . '», а ты купи слона!';
+    }
+
+    /**
+     * @param $userId
+     * @return bool|string
+     */
     public static function start($userId)
     {
         $greeting = new Greeting();
