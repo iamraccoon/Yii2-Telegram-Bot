@@ -2,7 +2,8 @@
 
 namespace app\actions;
 
-use app\components\telegram\DefaultMessage;
+use Yii;
+use app\components\telegram\Message;
 use yii\base\Action;
 
 /**
@@ -16,6 +17,6 @@ class StartAction extends Action
      */
     public function run()
     {
-        return DefaultMessage::Salute();
+        return Message::start(Yii::$app->bot->getChatId());
     }
 }
