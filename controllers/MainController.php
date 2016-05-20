@@ -8,8 +8,15 @@ use app\actions\StartAction;
 use app\actions\HelpAction;
 use app\actions\ChatAction;
 
+/**
+ * Class MainController
+ * @package app\controllers
+ */
 class MainController extends Controller
 {
+    /**
+     * @return array
+     */
     public function behaviors()
     {
         return [
@@ -18,12 +25,17 @@ class MainController extends Controller
                 'actions' => array_keys($this->actions()),
                 'currentAction' => Yii::$app->controller->action->id
             ],
-//            'log' => [
-//                'class' => 'app\components\behaviors\LogBehavior'
-//            ]
+            'log' => [
+                'class' => 'app\components\behaviors\LogBehavior',
+                'actions' => array_keys($this->actions()),
+                'currentAction' => Yii::$app->controller->action->id
+            ]
         ];
     }
 
+    /**
+     * @return array
+     */
     public function actions()
     {
         return [
@@ -33,6 +45,9 @@ class MainController extends Controller
         ];
     }
 
+    /**
+     * Main action
+     */
     public function actionIndex()
     {
         $bot = Yii::$app->bot;
