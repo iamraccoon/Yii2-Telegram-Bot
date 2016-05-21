@@ -5,7 +5,7 @@ namespace app\components\telegram;
 use app\components\phrase\Greeting;
 
 /**
- * Class DefaultMessage
+ * Class Message
  * @package app\components\telegram
  */
 class Message
@@ -34,7 +34,7 @@ class Message
     /**
      * @return string
      */
-    public static function Help()
+    public static function help()
     {
         return 'Основная цель словесной «игры» — каждый раз, используя ответ собеседника, вновь предлагать ему купить слона';
     }
