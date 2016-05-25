@@ -128,7 +128,7 @@ class Bot extends BotApi implements Configurable
         }
 
         if (isset($this->request['message']['from']['id'])) {
-            $this->chatId = $this->request['message']['from']['id'];
+            $this->chatId = (int)$this->request['message']['from']['id'];
         }
 
         return $this->chatId;
