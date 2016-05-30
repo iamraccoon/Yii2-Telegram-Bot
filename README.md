@@ -1,4 +1,4 @@
-Yii2 TelegramBot [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/iamraccoon/BuyElephant/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/iamraccoon/BuyElephant/?branch=master)
+Yii2 TelegramBot [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/iamraccoon/Yii2-Telegram-Bot/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/iamraccoon/Yii2-Telegram-Bot/?branch=master)
 ==========
 A simple example of bot for telegram using yii2.
 
