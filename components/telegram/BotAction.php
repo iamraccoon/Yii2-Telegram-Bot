@@ -2,6 +2,8 @@
 
 namespace app\components\telegram;
 
+use app\components\behaviors\Banned;
+use app\models\Ban;
 use yii;
 
 /**
@@ -11,6 +13,11 @@ use yii;
 class BotAction
 {
     /**
+     * @var int
+     */
+    private $userId;
+
+    /**
      * @var string
      */
     private $action;
@@ -19,6 +26,19 @@ class BotAction
      * @var array
      */
     public $actionsList = ['start', 'help', 'chat'];
+
+    /**
+     * @var string
+     */
+    private $bannedAction = 'ban';
+
+    /**
+     * @param $userId
+     */
+    public function __construct($userId)
+    {
+        $this->userId = $userId;
+    }
 
     /**
      * @param $controller
@@ -38,10 +58,24 @@ class BotAction
      */
     private function getActionName($action)
     {
+        if ($this->isBanned()) {
+            return $this->bannedAction;
+        }
+
         if (in_array($action, $this->actionsList)) {
             return $action;
         }
 
         return Yii::$app->bot->methodDefault;
+    }
+
+    /**
+     * @return bool
+     */
+    private function isBanned()
+    {
+        $checkBan = new Ban();
+
+        return $checkBan->isBanned($this->userId);
     }
 } 

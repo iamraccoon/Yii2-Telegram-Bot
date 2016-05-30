@@ -7,6 +7,7 @@ use yii\base\Controller;
 use app\actions\StartAction;
 use app\actions\HelpAction;
 use app\actions\ChatAction;
+use app\actions\BanAction;
 
 /**
  * Class MainController
@@ -41,7 +42,8 @@ class MainController extends Controller
         return [
             'start' => ['class' => StartAction::className()],
             'help' => ['class' => HelpAction::className()],
-            'chat' => ['class' => ChatAction::className()]
+            'chat' => ['class' => ChatAction::className()],
+            'ban' => ['class' => BanAction::className()]
         ];
     }
 
@@ -52,6 +54,7 @@ class MainController extends Controller
     {
         $bot = Yii::$app->bot;
         $bot->init();
+
         $message = $bot->makeAnswer();
         $bot->sendMessage($bot->getChatId(), $message);
     }

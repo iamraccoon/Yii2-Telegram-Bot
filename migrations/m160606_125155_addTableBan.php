@@ -12,7 +12,7 @@ class m160606_125155_addTableBan extends Migration
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
-            $tableOptions = 'ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_unicode_ci COMMENT="Забаненые пользователи" AUTO_INCREMENT=1';
+            $tableOptions = 'ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_unicode_ci COMMENT="Забаненные пользователи" AUTO_INCREMENT=1';
         }
 
         $this->createTable($this->tableName, [

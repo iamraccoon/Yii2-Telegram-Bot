@@ -54,4 +54,17 @@ class Ban extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'userId']);
     }
+
+    /**
+     * @param $userId
+     * @return bool
+     */
+    public function isBanned($userId)
+    {
+        if (($ban = Ban::find()->select('id')->where('userId=:userId', [':userId' => $userId])->one())) {
+            return true;
+        }
+
+        return false;
+    }
 }
